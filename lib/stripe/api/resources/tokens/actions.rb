@@ -1,11 +1,11 @@
 module Stripe
   module Api
     module Resources
-      module Customers
+      module Tokens
         class Actions < Stripe::Api::Resources::Base
-          def create(data = {})
+          def create_credit_card(data = {})
             request(
-              url: "/customers",
+              url: "/tokens",
               type: :post,
               data: data
             )

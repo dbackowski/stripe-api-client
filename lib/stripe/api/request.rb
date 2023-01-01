@@ -7,6 +7,13 @@ module Stripe
 
       format :json
 
+      attr_reader :api_key, :debug_output
+
+      def initialize(api_key:, debug_output: $stdout)
+        @api_key = api_key
+        @debug_output = debug_output
+      end
+
       def call(url:, type:, data: {})
         response = self.class.public_send(type, url, options(data))
         Stripe::Api::Response.call(response)
@@ -16,9 +23,9 @@ module Stripe
 
       def options(data = {})
         {
-          basic_auth: { username: "sk_test_4eC39HqLyjWDarjtT1zdp7dc" },
-          debug_output: $stdout
-        }.merge(body: data.to_json)
+          basic_auth: { username: api_key },
+          debug_output: debug_output
+        }.merge(body: data)
       end
     end
   end
