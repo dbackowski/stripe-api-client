@@ -7,7 +7,7 @@ module Stripe
             request(
               url: "/tokens",
               type: :post,
-              data: data
+              data: { card: data }
             )
           end
         end
