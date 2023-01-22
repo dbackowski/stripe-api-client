@@ -1,4 +1,4 @@
-RSpec.describe Stripe::Api::Client do
+RSpec.describe Stripe::Api::Client, :vcr do
   let(:subject) { described_class.new(api_key: "sk_test_4eC39HqLyjWDarjtT1zdp7dc") }
 
   it "has a version number" do

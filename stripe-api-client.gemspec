@@ -28,4 +28,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency 'httparty', '~> 0.21.0'
+  spec.add_development_dependency 'vcr', '~> 6.1.0'
+  spec.add_development_dependency 'rubocop', '~> 1.43.0'
+  spec.add_development_dependency 'webmock', '~> 3.18.1'
 end
